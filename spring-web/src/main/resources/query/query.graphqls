@@ -1,0 +1,10 @@
+type Query {
+    posts: [Post!]!
+    post(id: Int!): Post
+
+    albums: [Album!]!
+    album(id: Int!): Album
+
+    todos: [Todo!]!
+    todo(id: Int!): Todo
+}

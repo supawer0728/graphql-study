@@ -1,0 +1,38 @@
+plugins {
+    id 'com.bmuschko.docker-spring-boot-application' version '6.1.4'
+}
+
+dependencies {
+    // graphql
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter'
+    implementation 'com.graphql-java-kickstart:graphql-kickstart-spring-boot-starter-tools'
+    runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter'
+    runtime 'com.graphql-java-kickstart:altair-spring-boot-starter'
+    runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter'
+
+    // db
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // test
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+docker {
+    springBootApplication {
+        baseImage = 'adoptopenjdk/openjdk11'
+        ports = [8080]
+        images = ["supawer0728/${rootProject.name}-${project.name}:${rootProject.version}", "supawer0728/${rootProject.name}-${project.name}:latest"]
+        jvmArgs = ['-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}', '-Xmx256m']
+    }
+}
