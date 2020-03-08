@@ -11,4 +11,6 @@ type Query {
     user(id: Int): User
 
     vehicle(id: Int!): Vehicle
+
+    search(title: String!): [Search!]!
 }
