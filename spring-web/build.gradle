@@ -12,6 +12,7 @@ dependencies {
 
     // db
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    runtimeOnly 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 
     // lombok
     compileOnly 'org.projectlombok:lombok'
@@ -36,5 +37,3 @@ docker {
         jvmArgs = ['-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}', '-Xmx256m']
     }
 }
-
-bootJar.enabled = true
