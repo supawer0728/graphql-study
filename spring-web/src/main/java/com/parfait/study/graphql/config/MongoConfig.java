@@ -13,6 +13,8 @@ public class MongoConfig {
     @Bean
     public MongoClientOptions offRetryWrites() {
         return MongoClientOptions.builder()
+                                 .socketTimeout(1000)
+                                 .connectTimeout(20000)
                                  .retryWrites(false)
                                  .build();
     }
