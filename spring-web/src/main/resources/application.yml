@@ -1,1 +1,5 @@
-spring.data.mongodb.uri: mongodb://localhost:32768/test
+spring:
+  mongodb.embedded.version: 3.5.5
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/graphql
