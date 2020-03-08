@@ -1,5 +1,8 @@
 package com.parfait.study.graphql.user;
 
+import java.util.Optional;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,5 +43,12 @@ public class User {
         this.phone = phone;
         this.website = website;
         this.company = company;
+    }
+
+    public String getName(Boolean toUpperCase) {
+        return Optional.ofNullable(toUpperCase)
+                       .filter(Boolean.TRUE::equals)
+                       .map(ignore -> StringUtils.upperCase(this.name))
+                       .orElse(this.name);
     }
 }

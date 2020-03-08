@@ -1,6 +1,6 @@
 type User {
     id: Int!
-    name: String!
+    name(toUpperCase: Boolean): String!
     email: String!
     address: Address!
     phone: String!
