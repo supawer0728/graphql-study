@@ -1,0 +1,33 @@
+# 탈것
+interface Vehicle {
+    # ID
+    id: Int!
+    # 제조사
+    manufacturer: String!
+    # 이름
+    name: String!
+}
+
+# 자동차
+type Car implements Vehicle {
+    # ID
+    id: Int!
+    # 제조사
+    manufacturer: String!
+    # 이름
+    name: String!
+    # 타이어 이름
+    tire: String!
+}
+
+# 비행기
+type Airplane implements Vehicle {
+    # ID
+    id: Int!
+    # 제조사
+    manufacturer: String!
+    # 이름
+    name: String!
+    # 최대 비행 고도
+    flyLimit: String!
+}

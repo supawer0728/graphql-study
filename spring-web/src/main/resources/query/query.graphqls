@@ -9,4 +9,6 @@ type Query {
     todo(id: Int!): Todo
 
     user(id: Int): User
+
+    vehicle(id: Int!): Vehicle
 }

@@ -1,6 +1,11 @@
+# 할 일
 type Todo {
+    # ID
     id: Int!
+    # 등록자
     user: User!
+    # 내용
     title: String!
+    # 완료 여부
     completed: Boolean!
 }

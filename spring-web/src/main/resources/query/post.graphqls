@@ -1,14 +1,25 @@
+# 포스트
 type Post {
+    # ID
     id: Int!
+    # 제목
     title: String!
+    # 내용
     body: String!
+    # 글쓴이
     user: User!
+    # 댓글
     comments(limit: Int): [Comment!]!
 }
 
+# 댓글
 type Comment {
+    # ID
     id: Int!
+    # 댓글러
     name: String!
+    # 이메일
     email: String!
+    # 내용
     body: String!
 }

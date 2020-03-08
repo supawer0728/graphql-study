@@ -7,6 +7,7 @@ import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,6 +29,10 @@ import com.parfait.study.graphql.todo.Todo;
 import com.parfait.study.graphql.todo.TodoRepository;
 import com.parfait.study.graphql.user.User;
 import com.parfait.study.graphql.user.UserRepository;
+import com.parfait.study.graphql.vehicle.Airplane;
+import com.parfait.study.graphql.vehicle.Car;
+import com.parfait.study.graphql.vehicle.Vehicle;
+import com.parfait.study.graphql.vehicle.VehicleRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,6 +55,7 @@ public class AppInitializer {
     private final PostRepository postRepository;
     private final AlbumRepository albumRepository;
     private final TodoRepository todoRepository;
+    private final VehicleRepository vehicleRepository;
 
     @PostConstruct
     public void initialize() throws IOException {
@@ -57,6 +63,7 @@ public class AppInitializer {
         initializePosts(users);
         initializeAlbums(users);
         initializeTodo(users);
+        initializeVehicle();
     }
 
     private Map<Long, User> initializeUsers() throws IOException {
@@ -108,5 +115,15 @@ public class AppInitializer {
                             .collect(toList());
 
         todoRepository.saveAll(todos);
+    }
+
+    private void initializeVehicle() {
+        List<Vehicle> vehicles =
+                Arrays.asList(
+                        new Car(1L, "Mercedes-Benz", "E-class", "Mercedes Original"),
+                        new Airplane(2L, "Lockheed Martin", "F-22A Raptor", "100km"));
+
+        vehicleRepository.saveAll(vehicles);
+
     }
 }

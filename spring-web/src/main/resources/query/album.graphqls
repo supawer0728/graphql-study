@@ -1,13 +1,23 @@
+# 앨범
 type Album {
+    # ID
     id: Int!
+    # 소유자
     user: User!
+    # 제목
     title: String!
+    # 사진목록
     photos(limit: Int): [Photo!]!
 }
 
+# 사진
 type Photo {
+    # ID
     id: Int!
+    # 제목
     title: String!
+    # 주소
     url: String!
+    # 썸네일 주소
     thumbnailUrl: String!
 }

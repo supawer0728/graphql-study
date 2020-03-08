@@ -1,28 +1,46 @@
+# 사용자
 type User {
+    # ID
     id: Int!
+    # 이름
     name(toUpperCase: Boolean): String!
+    # 이메일
     email: String!
+    # 주소
     address: Address!
+    # 휴대폰 번호
     phone: String!
+    # 웹사이트 주소
     website: String!
+    # 회사
     company: Company!
 }
 
+# 주소
 type Address {
     street: String!
     suite: String!
+    # 도시
     city: String!
+    # 우편번호
     zipcode: String!
+    # 위경도
     geo: GeoLocation!
 }
 
+# 위경도
 type GeoLocation {
+    # 위도
     lat: String!
+    # 경도
     lng: String!
 }
 
+# 회사
 type Company {
+    # 이름
     name: String!
+    # 캐치 프레이즈
     catchPhrase: String!
     bs: String!
 }
