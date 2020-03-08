@@ -14,14 +14,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.parfait.study.graphql.user.User;
 
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 
 @EqualsAndHashCode
 @ToString
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Document
 public class Album {
 
