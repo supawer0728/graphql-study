@@ -2,7 +2,7 @@ type Album {
     id: Int!
     user: User!
     title: String!
-    photos: [Photo!]!
+    photos(limit: Int): [Photo!]!
 }
 
 type Photo {

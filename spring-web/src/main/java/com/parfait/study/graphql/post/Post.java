@@ -63,10 +63,10 @@ public class Post {
         return this;
     }
 
-    public List<Comment> comments(Integer count) {
-        if (Objects.isNull(count)) {
-            count = Integer.MAX_VALUE;
+    public List<Comment> comments(Integer limit) {
+        if (Objects.isNull(limit)) {
+            limit = Integer.MAX_VALUE;
         }
-        return this.comments.stream().limit(count).collect(toList());
+        return this.comments.stream().limit(limit).collect(toList());
     }
 }

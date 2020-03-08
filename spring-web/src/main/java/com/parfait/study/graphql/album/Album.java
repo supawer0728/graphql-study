@@ -1,5 +1,8 @@
 package com.parfait.study.graphql.album;
 
+import static java.util.stream.Collectors.toList;
+
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -54,5 +57,12 @@ public class Album {
         }
         this.photos = photos;
         return this;
+    }
+
+    public List<Photo> getPhotos(Integer limit) {
+        if (Objects.isNull(limit)) {
+            limit = Integer.MAX_VALUE;
+        }
+        return this.photos.stream().limit(limit).collect(toList());
     }
 }

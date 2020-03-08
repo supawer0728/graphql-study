@@ -1,10 +1,10 @@
 type Query {
-    posts: [Post!]!
+    posts(limit: Int): [Post!]!
     post(id: Int!): Post
 
-    albums: [Album!]!
+    albums(limit: Int): [Album!]!
     album(id: Int!): Album
 
-    todos: [Todo!]!
+    todos(limit: Int): [Todo!]!
     todo(id: Int!): Todo
 }
